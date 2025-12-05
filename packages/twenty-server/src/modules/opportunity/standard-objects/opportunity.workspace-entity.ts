@@ -36,6 +36,7 @@ import { NoteTargetWorkspaceEntity } from 'src/modules/note/standard-objects/not
 import { PersonWorkspaceEntity } from 'src/modules/person/standard-objects/person.workspace-entity';
 import { TaskTargetWorkspaceEntity } from 'src/modules/task/standard-objects/task-target.workspace-entity';
 import { TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
+import { WorkspaceMemberWorkspaceEntity } from 'src/modules/workspace-member/standard-objects/workspace-member.workspace-entity';
 
 const NAME_FIELD_NAME = 'name';
 
@@ -110,6 +111,21 @@ export class OpportunityWorkspaceEntity extends BaseWorkspaceEntity {
   stage: string;
 
   @WorkspaceField({
+    standardId: OPPORTUNITY_STANDARD_FIELD_IDS.source,
+    type: FieldMetadataType.SELECT,
+    label: msg`Source`,
+    description: msg`Opportunity source (Inbound or Outbound)`,
+    icon: 'IconArrowsExchange',
+    options: [
+      { value: 'INBOUND', label: 'Inbound', position: 0, color: 'green' },
+      { value: 'OUTBOUND', label: 'Outbound', position: 1, color: 'blue' },
+    ],
+    defaultValue: "'INBOUND'",
+  })
+  @WorkspaceIsNullable()
+  source: string | null;
+
+  @WorkspaceField({
     standardId: OPPORTUNITY_STANDARD_FIELD_IDS.position,
     type: FieldMetadataType.POSITION,
     label: msg`Position`,
@@ -161,6 +177,22 @@ export class OpportunityWorkspaceEntity extends BaseWorkspaceEntity {
 
   @WorkspaceJoinColumn('company')
   companyId: string | null;
+
+  @WorkspaceRelation({
+    standardId: OPPORTUNITY_STANDARD_FIELD_IDS.assignee,
+    type: RelationType.MANY_TO_ONE,
+    label: msg`Assignee`,
+    description: msg`Opportunity assignee (responsible team member)`,
+    icon: 'IconUserCircle',
+    inverseSideTarget: () => WorkspaceMemberWorkspaceEntity,
+    inverseSideFieldKey: 'assignedOpportunities',
+    onDelete: RelationOnDeleteAction.SET_NULL,
+  })
+  @WorkspaceIsNullable()
+  assignee: Relation<WorkspaceMemberWorkspaceEntity> | null;
+
+  @WorkspaceJoinColumn('assignee')
+  assigneeId: string | null;
 
   @WorkspaceRelation({
     standardId: OPPORTUNITY_STANDARD_FIELD_IDS.favorites,

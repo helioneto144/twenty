@@ -312,6 +312,9 @@ export const OPPORTUNITY_STANDARD_FIELD_IDS = {
   attachments: '20202020-87c7-4118-83d6-2f4031005209',
   timelineActivities: '20202020-30e2-421f-96c7-19c69d1cf631',
   searchVector: '428a0da5-4b2e-4ce3-b695-89a8b384e6e3',
+  // FassxTudo custom fields
+  source: '6f9ffdea-0e40-4566-a1d6-36045f3fbbb7',
+  assignee: '17a0264d-f1f9-45bf-a67a-9c025e748bd7',
 } as const;
 
 export const PERSON_STANDARD_FIELD_IDS = {
@@ -510,6 +513,8 @@ export const WORKSPACE_MEMBER_STANDARD_FIELD_IDS = {
   searchVector: '20202020-46d0-4e7f-bc26-74c0edaeb619',
   calendarStartDay: '20202020-92d0-1d7f-a126-25ededa6b142',
   numberFormat: '20202020-7f40-4e7f-b126-11c0eda6b141',
+  // FassxTudo custom fields
+  assignedOpportunities: '62670afa-9598-4e5a-b534-6a7eaa8e552b',
 } as const;
 export const CUSTOM_OBJECT_STANDARD_FIELD_IDS = {
   name: '20202020-ba07-4ffd-ba63-009491f5749c',

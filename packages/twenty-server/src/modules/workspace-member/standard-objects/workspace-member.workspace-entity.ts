@@ -37,6 +37,7 @@ import { CompanyWorkspaceEntity } from 'src/modules/company/standard-objects/com
 import { ConnectedAccountWorkspaceEntity } from 'src/modules/connected-account/standard-objects/connected-account.workspace-entity';
 import { FavoriteWorkspaceEntity } from 'src/modules/favorite/standard-objects/favorite.workspace-entity';
 import { MessageParticipantWorkspaceEntity } from 'src/modules/messaging/common/standard-objects/message-participant.workspace-entity';
+import { OpportunityWorkspaceEntity } from 'src/modules/opportunity/standard-objects/opportunity.workspace-entity';
 import { TaskWorkspaceEntity } from 'src/modules/task/standard-objects/task.workspace-entity';
 import { TimelineActivityWorkspaceEntity } from 'src/modules/timeline/standard-objects/timeline-activity.workspace-entity';
 
@@ -278,6 +279,18 @@ export class WorkspaceMemberWorkspaceEntity extends BaseWorkspaceEntity {
     onDelete: RelationOnDeleteAction.SET_NULL,
   })
   assignedTasks: Relation<TaskWorkspaceEntity[]>;
+
+  @WorkspaceRelation({
+    standardId: WORKSPACE_MEMBER_STANDARD_FIELD_IDS.assignedOpportunities,
+    type: RelationType.ONE_TO_MANY,
+    label: msg`Assigned Opportunities`,
+    description: msg`Opportunities assigned to the workspace member`,
+    icon: 'IconTargetArrow',
+    inverseSideTarget: () => OpportunityWorkspaceEntity,
+    inverseSideFieldKey: 'assignee',
+    onDelete: RelationOnDeleteAction.SET_NULL,
+  })
+  assignedOpportunities: Relation<OpportunityWorkspaceEntity[]>;
 
   @WorkspaceRelation({
     standardId: WORKSPACE_MEMBER_STANDARD_FIELD_IDS.favorites,
