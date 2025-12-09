@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/helioneto144/twenty/main/packages/twenty-front/public/icons/android/android-launchericon-192-192.png" width="100px" alt="JusDeal logo" />
+  <img src="https://raw.githubusercontent.com/helioneto144/twenty/main/packages/twenty-front/public/images/icons/android/android-launchericon-192-192.png" width="100px" alt="JusDeal logo" />
 </p>
 
 <h2 align="center">JusDeal - CRM Jurídico</h2>
