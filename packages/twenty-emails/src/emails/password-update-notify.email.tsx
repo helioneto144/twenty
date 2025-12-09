@@ -43,7 +43,7 @@ export const PasswordUpdateNotifyEmail = ({
         <br />
       </MainText>
       <br />
-      <CallToAction value={i18n._('Connect to Twenty')} href={link} />
+      <CallToAction value={i18n._('Connect to JusDeal')} href={link} />
       <br />
       <br />
     </BaseEmail>
@@ -51,10 +51,10 @@ export const PasswordUpdateNotifyEmail = ({
 };
 
 PasswordUpdateNotifyEmail.PreviewProps = {
-  userName: 'John Doe',
-  email: 'john.doe@example.com',
-  link: 'https://app.twenty.com',
-  locale: 'en',
+  userName: 'Helio',
+  email: 'helio.menezes@fass.legal',
+  link: 'https://jusdeal.fass-legal.com',
+  locale: 'pt-BR',
 } as PasswordUpdateNotifyEmailProps;
 
 export default PasswordUpdateNotifyEmail;

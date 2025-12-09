@@ -4,10 +4,14 @@ const logoStyle = {
   marginBottom: '40px',
 };
 
-export const Logo = () => {
+type LogoProps = {
+  serverUrl?: string;
+};
+
+export const Logo = ({ serverUrl = 'https://jusdeal.fass-legal.com' }: LogoProps) => {
   return (
     <Img
-      src="/images/icons/windows11/Square150x150Logo.scale-100.png"
+      src={`${serverUrl}/images/icons/android/android-launchericon-192-192.png`}
       alt="JusDeal logo"
       width="40"
       height="40"

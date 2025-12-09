@@ -46,10 +46,10 @@ export const PasswordResetLinkEmail = ({
 };
 
 PasswordResetLinkEmail.PreviewProps = {
-  duration: '24 hours',
+  duration: '24 horas',
   hasPassword: true,
-  link: 'https://app.twenty.com/reset-password/123',
-  locale: 'en',
+  link: 'https://jusdeal.fass-legal.com/reset-password/123',
+  locale: 'pt-BR',
 } as PasswordResetLinkEmailProps;
 
 export default PasswordResetLinkEmail;

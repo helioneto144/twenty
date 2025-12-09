@@ -11,9 +11,15 @@ type BaseEmailProps = {
   children: JSX.Element | JSX.Element[] | string;
   width?: number;
   locale: keyof typeof APP_LOCALES;
+  serverUrl?: string;
 };
 
-export const BaseEmail = ({ children, width, locale }: BaseEmailProps) => {
+export const BaseEmail = ({
+  children,
+  width,
+  locale,
+  serverUrl = 'https://jusdeal.fass-legal.com',
+}: BaseEmailProps) => {
   const i18nInstance = createI18nInstance(locale);
 
   return (
@@ -21,7 +27,7 @@ export const BaseEmail = ({ children, width, locale }: BaseEmailProps) => {
       <Html lang={locale}>
         <BaseHead />
         <Container width={width || 290}>
-          <Logo />
+          <Logo serverUrl={serverUrl} />
           {children}
           <Footer i18n={i18nInstance} />
         </Container>

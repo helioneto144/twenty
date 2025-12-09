@@ -2,14 +2,14 @@ import { type I18n } from '@lingui/core';
 import { MainText } from 'src/components/MainText';
 import { SubTitle } from 'src/components/SubTitle';
 
-type WhatIsTwentyProps = {
+type WhatIsJusDealProps = {
   i18n: I18n;
 };
 
-export const WhatIsTwenty = ({ i18n }: WhatIsTwentyProps) => {
+export const WhatIsJusDeal = ({ i18n }: WhatIsJusDealProps) => {
   return (
     <>
-      <SubTitle value={i18n._('What is Twenty?')} />
+      <SubTitle value={i18n._('What is JusDeal?')} />
       <MainText>
         {i18n._(
           "It's a CRM, a software to help businesses manage their customer data and relationships efficiently.",
@@ -18,3 +18,6 @@ export const WhatIsTwenty = ({ i18n }: WhatIsTwentyProps) => {
     </>
   );
 };
+
+// Alias for backward compatibility
+export const WhatIsTwenty = WhatIsJusDeal;
